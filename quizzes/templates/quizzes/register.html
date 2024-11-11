@@ -1,0 +1,19 @@
+<!-- quizzes/templates/quizzes/register.html -->
+{% extends 'quizzes/base.html' %}
+{% block title %}Registeration{% endblock %}
+{% block content %}
+
+    <form method="POST" class="register-form-group">
+    	<h2>Register</h2>
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render form fields -->
+        <button type="submit">Register</button>
+    </form>
+
+
+
+
+
+
+{% endblock %}
+

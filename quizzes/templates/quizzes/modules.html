@@ -1,0 +1,20 @@
+{% extends 'quizzes/base.html' %}
+
+{% block title %}Modules{% endblock %}
+
+{% block content %}
+<h2>Modules for {{ package.name }}</h2>
+<div class="modules-container">
+    {% if modules %}
+        {% for module in modules %}
+            <div class="module-item">
+                <h3>{{ module.name }}</h3>
+                <p>{{ module.description }}</p>
+                <a href="{% url 'quizzes' module.id %}" class="buttonEnterModule">View Quizzes</a>  <!-- Link to quizzes -->
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No modules available for this package.</p>
+    {% endif %}
+</div>
+{% endblock %}

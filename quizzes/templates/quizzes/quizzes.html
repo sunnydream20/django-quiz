@@ -1,0 +1,20 @@
+{% extends 'quizzes/base.html' %}
+
+{% block title %}Quizzes{% endblock %}
+
+{% block content %}
+<h2>Quizzes for {{ module.name }}</h2>
+<div class="quiz-list">
+    {% if quizzes %}
+        {% for quiz in quizzes %}
+            <div class="quiz-item">
+                <h3>{{ quiz.title }}</h3>
+                <p>{{ quiz.description }}</p>
+                <a href="{% url 'questions' quiz.id %}" class="buttonEnterQuiz">Start Quiz</a>  <!-- Link to quiz details -->
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No quizzes available for this module.</p>
+    {% endif %}
+</div>
+{% endblock %}

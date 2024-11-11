@@ -1,0 +1,54 @@
+{% extends 'quizzes/base.html' %}
+
+{% block title %}Take Quiz: {{ quiz.title }}{% endblock %}
+
+{% block content %}
+
+<h2>Questions for {{ quiz.name }}</h2>
+<div class="modules-container">
+    <form method="POST" action="{% url 'take_quiz' quiz.id %}">
+        {% csrf_token %}
+        {% if questions %}
+        {% for question in questions %}
+        <div class="module-item">
+            <h3>{{ question.name }}</h3>
+
+            <p><span>{{forloop.counter}} : </span>{{ question.question_text }}</p>
+            <fieldset>
+                <div class="form-check radio-form">
+                    <input type="radio" class="form-check-input radio-input" id="radio{{forloop.counter}}1"
+                        name="question_{{ question.id }}" value="1" />
+                    <label class="form-check-label radio-label"
+                        for="radio{{forloop.counter}}1">{{question.option1}}</label>
+                </div>
+                <div class="form-check radio-form">
+                    <input type="radio" class="form-check-input radio-input" id="radio{{forloop.counter}}2"
+                        name="question_{{ question.id }}" value="2" />
+                    <label class="form-check-label radio-label"
+                        for="radio{{forloop.counter}}2">{{question.option2}}</label>
+                </div>
+                <div class="form-check radio-form">
+                    <input type="radio" class="form-check-input radio-input" id="radio{{forloop.counter}}3"
+                        name="question_{{ question.id }}" value="3" />
+                    <label class="form-check-label radio-label"
+                        for="radio{{forloop.counter}}3">{{question.option3}}</label>
+                </div>
+                <div class="form-check radio-form ma-b-s">
+                    <input type="radio" class="form-check-input radio-input" id="radio{{forloop.counter}}4"
+                        name="question_{{ question.id }}" value="4" />
+                    <label class="form-check-label radio-label"
+                        for="radio{{forloop.counter}}4">{{question.option4}}</label>
+                </div>
+            </fieldset>
+        </div>
+
+        {% endfor %}
+        <button class="btn btn-info">Submit</button>
+        {% else %}
+        <p>No questions available for the Quiz : {{ quiz.name }}</p>
+        {% endif %}
+    </form>
+</div>
+
+
+{% endblock %}
