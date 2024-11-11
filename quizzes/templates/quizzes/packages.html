@@ -1,0 +1,23 @@
+{% extends 'quizzes/base.html' %}
+{% block title %}Packages{% endblock %}
+{% block content %}
+    <h2>Packages</h2>
+
+    <div class="packages-container">
+        {% for package in packages %}
+            <div class="package-item">
+                <h3>{{ package.name }}</h3>
+                <p>Price: {{ package.price }} DZD</p>
+                
+                {% if package.owned %}
+                    <p>You already own this package.</p>
+                    <!-- Update the URL here -->
+                    <a href="{% url 'modules' package.id %}" class="buttonEnterPackage">Enter</a>
+                {% else %}
+                    <a href="{% url 'buyPackages' package.id %}" class="buttonBuy">Buy {{ package.name }}</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

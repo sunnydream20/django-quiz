@@ -1,0 +1,32 @@
+{
+    "questions": {
+        "1": "Which of the following structures contains genes for enzymes and antibiotic resistance?",
+        "2": "Which of the following is the most important structure related to microbial attachment to cells?",
+        "3": "3rd question"
+    },
+    "answers": {
+        "1": {
+            "1": "Plasmid",
+            "2": "Hair",
+            "3": "Capsule",
+            "4": "Plasma Membrane"
+        },
+        "2": {
+            "1": "Flagellum",
+            "2": "Plasmid",
+            "3": "Peptidoglycan",
+            "4": "Glycocalix"
+        },
+        "3": {
+            "1": "aa",
+            "2": "bb",
+            "3": "cc",
+            "4": "dd"
+        }
+    },
+    "correct_answers": {
+        "1": 1,
+        "2": 4,
+        "3": 4
+    }
+}

@@ -1,0 +1,103 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PharmaQuiz{% endblock %}</title>
+    {% load static %}
+
+
+    <link rel="manifest" href="{% static 'quizzes/manifest.json' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'quizzes/css/styles.css' %}" id="styleSheetLink">
+
+
+    <script src="{% static 'quizzes/js/app.js' %}"></script>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'quizzes/images/favicon.ico' %}">
+    
+
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="{% static 'quizzes/images/logoResult.svg' %}" alt="Logo" style="max-width: 100%; height: auto;">
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="topnav">
+            <a class="{% if request.path == '/quizzes/' %}active{% endif %}" href="/quizzes/">Home</a>
+            <a class="{% if request.path == '/quizzes/packages/' %}active{% endif %}" href="/quizzes/packages/">Packages</a>
+            <a class="{% if request.path == '/quizzes/contact/' %}active{% endif %}" href="/quizzes/contact/">Contact Us</a>
+            
+
+
+
+            {% if user.is_authenticated %}
+                    <!-- Dropdown for logged-in users -->
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">{{ user.username }}</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#Settings">Settings</a> <!-- Update these hrefs with actual URLs -->
+                            <a href="#Info">Info</a>
+                            <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+                                {% csrf_token %}
+                            </form>
+                        </div>
+                    </div>
+                {% else %}
+                    <!-- Login link for visitors -->
+                    <a class="{% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}">Login</a>
+                {% endif %}
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/static/quizzes/js/service-worker.js')
+                .then((reg) => console.log('Service Worker registered', reg.scope))
+                .catch((err) => console.log('Service Worker registration failed', err));
+            });
+        }
+
+        function toggleUserInfo() {
+            var userInfo = document.getElementById("user-info");
+            userInfo.style.display = userInfo.style.display === "none" ? "block" : "none";
+        }
+    </script>
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+    </script>
+
+</body>
+</html>

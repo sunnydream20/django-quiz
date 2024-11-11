@@ -1,0 +1,284 @@
+/*fonts*/
+@font-face {
+    font-family: 'Drugs';
+    src: url('../fonts/Drugs.otf') format('opentype');
+    font-weight: normal; /* or bold */
+    font-style: normal;  /* or italic */
+}
+
+
+@font-face {
+    font-family: 'Bambi';
+    src: url('../fonts/Bambi.otf') format('opentype');
+    font-weight: bold; /* or bold */
+    font-style: normal;  /* or italic */
+}
+
+/* styles.css */
+body {
+
+    font-family: 'Drugs', Algerian;
+    background-color: #17a2b8; /* Changed to gradient */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Ensures the body takes at least full viewport height */
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.footer {
+    background-color: #f8f9fa; /* Change to your desired color */
+    color: black; /* Text color */
+    text-align: center; /* Center text */
+    padding: 20px; /* Add some padding */
+    position: fixed; /* Fixed position */
+    bottom: 0; /* Align to bottom */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+}
+
+
+
+
+.mainPage{
+    padding: 20px;
+
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.list-group-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* navigation bar */
+
+.navbar {
+  display: flex;                  /* Use flexbox for layout */
+  justify-content: space-between; /* Space between logo and nav */
+  align-items: center;           /* Center items vertically */
+  padding: 0.5rem 1rem;           /* Add some padding */
+  background-color: #f8f9fa;       /* Navbar background color */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for the navigation bar */
+
+}
+
+.logo img {
+                  /* Set a height for your logo */
+}
+
+.topnav {
+  display: flex;                 /* Use flexbox for nav items */
+  margin-left: auto;            /* Push the nav to the right */
+
+}
+
+.topnav a {
+  padding: 14px 20px;       /* Adjust padding as needed */
+  display: inline-block;    
+  color: black;             /* Default link color */
+  text-align: center;       
+  text-decoration: none;    
+  border-radius: 15px;      /* Add rounded corners */
+}
+
+.topnav a.active {
+  background-color: #17a2b8; /* Active link background */
+  color: white;              /* Active link text color */
+  border-radius: 30px;       /* Rounded corners for active link */
+ 
+}
+
+
+.topnav a:hover {
+  color: #79c5d2;                 /* Text color on hover */
+}
+
+
+  /* Additional styling for the Login link */
+.topnav .login {
+  margin-left: 20px;            /* Add space to the left of the Login link */
+  font-weight: bold;            /* Optional: make the login link bold */
+}
+
+.content{
+  display: grid; /* Enables Grid */
+  place-items: center; /* Centers items both horizontally and vertically */
+
+  color: white;
+  padding: 15px;
+  margin: 30px 0;
+}
+
+
+.content-container {
+    display: flex; /* Use flexbox to arrange children in a row */
+    align-items: flex-start; /* Align items at the top */
+    justify-content: space-between; /* Space out the content */
+}
+
+.text-container {
+    flex: 1; /* Take up available space */
+    margin-right: 50px; /* Add some space between text and image */
+}
+
+.image-container {
+    flex-shrink: 0; /* Prevent the image container from shrinking */
+}
+
+/*for the login -----------------*/
+.login-container {
+    background-color: #fff; /* White background for the form */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Fixed width for the form */
+}
+
+
+
+.messages {
+    color: red; /* Red color for error messages */
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555; /* Gray color for labels */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Full width for inputs */
+    padding: 10px;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding is included in total width */
+}
+
+button {
+    width: 100%; /* Full width for button */
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer; /* Pointer cursor on hover */
+    background-color: #17a2b8; /* Active link background */
+    color: white;              /* Active link text color */
+    border-radius: 30px;       /* Rounded corners for active lin*/
+}
+
+/*for the login -----------------end*/
+
+
+/*******************************************************/
+/*******************************************************/
+/*******************************************************/
+
+/* Container for packages */
+.packages-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styling each package card */
+.package-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.package-item:hover {
+    transform: translateY(-5px);
+}
+
+.package-item h3 {
+    font-size: 20px;
+    color: #0056b3;
+}
+
+.package-item p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Styling the buy button */
+.package-item form button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.package-item form button:hover {
+    background-color: #003d80;
+}
+
+
+.package-item p {
+    color: black;
+    font-style: italic;
+}
+
+
+.radio-form {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.radio-input {
+    margin: 0px;
+}
+
+.radio-label {
+    margin: 0px;
+}
+
+/*******************************************************/
+/*******************************************************/
+/*******************************************************/

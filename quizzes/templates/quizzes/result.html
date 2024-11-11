@@ -1,0 +1,27 @@
+{% extends 'quizzes/base.html' %}
+{% block title %}Quiz Result{% endblock %}
+{% block content %}
+
+{% if results %}
+<a>Results for {{ username }} :</a><br>
+<a>Submission Time: {{ results.0.submitted_at }}</a><br>
+
+{% if results.0.question_id == 1 %}
+<a>Quiz title: {{ quiz_title1 }}</a><br>
+{% else %}
+<a>Quiz title: {{ quiz_title2 }}</a><br>
+{% endif %}
+
+
+{% for result in results %}
+<a>Question {{ result.question_id }}: {{ result.question }}</a><br>
+<a>Your Answer: {{ result.user_answer }}</a><br>
+<a>Correct Answer: {{ result.correct_answer }}</a><br>
+{% endfor %}
+{% else %}
+<p>No results found.</p>
+{% endif %}
+
+
+
+{% endblock %}
